@@ -1,0 +1,21 @@
+type Query {
+    users: [User!]!
+    user(username: ID!): User!
+    userRole(id: ID!): [String!]!
+    usersByRole(role: String!): [User!]!
+}
+
+type Mutation {
+    createUser(username: String!, email: String!, phone: String!): User!
+    updateUser(id: ID!, username: String, email: String, phone: String): User!
+    assignRole(id: ID!, role: String!): User!
+    revokeRole(id: ID!, role: String!): User!
+}
+
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    phone: String!
+    roles: [String!]!
+}
